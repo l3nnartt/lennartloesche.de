@@ -3562,6 +3562,7 @@ input, select, textarea {
 
 		#main table th {
 			color: #636363;
+			text-align: center;
 		}
 
 		#main table thead {

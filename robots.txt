@@ -1,2 +1,5 @@
 User-agent: *
-Disallow:
+Disallow: */impressum.html
+Disallow: */datenschutz.html
+Disallow: */social/
+Disallow: /*.jpg$

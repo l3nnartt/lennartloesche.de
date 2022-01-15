@@ -9,7 +9,18 @@
 
 <url>
   <loc>https://lennartloesche.de/</loc>
-  <lastmod>2021-10-24T10:22:02+00:00</lastmod>
+  <lastmod>2022-01-13T13:26:35+00:00</lastmod>
+  <priority>1.00</priority>
+</url>
+<url>
+  <loc>https://lennartloesche.de/impressum.html</loc>
+  <lastmod>2022-01-13T13:26:35+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://lennartloesche.de/datenschutz.html</loc>
+  <lastmod>2022-01-13T13:26:35+00:00</lastmod>
+  <priority>0.80</priority>
 </url>
 
 

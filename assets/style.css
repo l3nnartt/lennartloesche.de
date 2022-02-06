@@ -22,11 +22,10 @@
 
 body {
     background-color: #18191C;
-    background-image: url("bg.jpg");
+    background-image: url("bg.webp");
     background-size: cover;
     background-position: center center;
     background-attachment: fixed;
-    
 }
 
 .profile {

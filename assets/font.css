@@ -1,0 +1,21 @@
+@font-face {
+  font-family: "WhitneyBook";
+  src: url("whitney-book.woff") format("opentype");
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "one";
+  src: url("1.woff") format("opentype");
+  font-style: normal;
+  font-display: swap;
+}
+
+.whitney {
+  font-family: WhitneyBook, sans-serif;
+}
+
+.one {
+  font-family: one, sans-serif;
+}

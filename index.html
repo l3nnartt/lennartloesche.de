@@ -12,13 +12,16 @@
 	<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.6.2/jquery.min.js"> </script>
 	<script type="text/javascript">
 		function load() {
-			$.getJSON('https://api.lanyard.rest/v1/users/398101340322136075', function (data) {
+			$.getJSON('https://dcdn.dstn.to/profile/398101340322136075', function (data) {
+				console.log(data)
 
 				var div = document.getElementById('discordtext');
 				var profilepicture = document.getElementById('discordprofilepic')
+				var discordbanner = document.getElementById('discordbanner')
 
-				div.innerHTML = "<span class='h4 text-white whitney'>" + data.data.discord_user.username + "</span><span class='h4 text-white-50 whitney'>" + data.data.discord_user.discriminator + "</span>";
-				profilepicture.innerHTML = "<img src='https://cdn.discordapp.com/avatars/398101340322136075/" + data.data.discord_user.avatar + ".webp' class='w-100 rounded-circle' draggable='false' alt='Lennart Profile Picture' />"
+				div.innerHTML = "<span class='h4 text-white whitney'>" + data.user.username + "</span><span class='h4 text-white-50 whitney'>" + data.user.discriminator + "</span>";
+				profilepicture.innerHTML = "<img src='https://cdn.discordapp.com/avatars/398101340322136075/" + data.user.avatar + ".webp' class='w-100 rounded-circle' draggable='false' alt='Lennart Profile Picture' />"
+				discordbanner.innerHTML = "<img src='https://cdn.discordapp.com/banners/398101340322136075/" + data.user.banner + ".jpg?size=1280' draggable='false' alt='Profile Banner' />"
 			});
 		}
 	</script>
@@ -26,8 +29,7 @@
 
 <body onload="load()">
 	<div class="profile m-auto">
-		<div class="banner">
-			<img src="assets/banner.webp" draggable="false" alt="Profile Banner" />
+		<div class="banner" id="discordbanner">
 		</div>
 		<div class="pfpbg ms-4" id="discordprofilepic">
 		</div>

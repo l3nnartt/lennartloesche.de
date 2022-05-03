@@ -1,7 +1,8 @@
 @import "font.css";
 
 body {
-  background-image: url("bg.webp");
+  background: linear-gradient(rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.2)),
+    url("bg.webp");
   background-position: center;
   background-attachment: fixed;
   background-size: cover;
@@ -20,6 +21,7 @@ body {
   -moz-transform: (-50%, -50%);
   -ms-transform: (-50%, -50%);
   -o-transform: (-50%, -50%);
+  box-shadow: 0 0 4rem 5px #181818;
 }
 
 .banner {

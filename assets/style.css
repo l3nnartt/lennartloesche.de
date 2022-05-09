@@ -1,10 +1,7 @@
 @import "font.css";
 
 body {
-    background: linear-gradient(rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.2)),
-    url("bg.webp");
-    background-position: center;
-    background-attachment: fixed;
+    background: linear-gradient(rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.2)), url(bg.webp) fixed center;
     background-size: cover;
 }
 
@@ -17,10 +14,6 @@ body {
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
-    -webkit-transform: (-50%, -50%);
-    -moz-transform: (-50%, -50%);
-    -ms-transform: (-50%, -50%);
-    -o-transform: (-50%, -50%);
     box-shadow: 0 0 4rem 5px #181818;
 }
 
@@ -42,8 +35,8 @@ body {
 }
 
 #container {
-    display: flex; /* establish flex container */
-    justify-content: space-between; /* switched from default (flex-start, see below) */
+    display: flex;
+    justify-content: space-between;
 }
 
 a:link {

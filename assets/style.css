@@ -1,7 +1,10 @@
 @import "font.css";
 
 body {
-    background: linear-gradient(rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.2)) url("bg.webp") fixed center;
+    background: linear-gradient(rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.2)),
+    url("bg.webp");
+    background-position: center;
+    background-attachment: fixed;
     background-size: cover;
 }
 
@@ -33,14 +36,14 @@ body {
     width: 100%;
 }
 
-.pfp {
+.pfpbg {
     position: fixed;
     top: 5.2rem;
 }
 
 #container {
-    display: flex;
-    justify-content: space-between;
+    display: flex; /* establish flex container */
+    justify-content: space-between; /* switched from default (flex-start, see below) */
 }
 
 a:link {

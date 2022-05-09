@@ -6,11 +6,15 @@
             http://www.sitemaps.org/schemas/sitemap/0.9/sitemap.xsd">
 <!-- created with Free Online Sitemap Generator www.xml-sitemaps.com -->
 
-
 <url>
   <loc>https://lennartloesche.de/</loc>
   <lastmod>2022-01-13T13:26:35+00:00</lastmod>
   <priority>1.00</priority>
+</url>
+<url>
+  <loc>https://lennartloesche.de/social</loc>
+  <lastmod>2022-01-13T13:26:35+00:00</lastmod>
+  <priority>0.80</priority>
 </url>
 <url>
   <loc>https://lennartloesche.de/impressum.html</loc>
@@ -22,6 +26,5 @@
   <lastmod>2022-01-13T13:26:35+00:00</lastmod>
   <priority>0.80</priority>
 </url>
-
 
 </urlset>

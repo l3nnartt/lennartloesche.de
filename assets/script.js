@@ -10,7 +10,7 @@ $.getJSON("https://dcdn.dstn.to/profile/398101340322136075", function (data) {
 	document.getElementById("buttoncopystandard").addEventListener('click', copyToClickBoard);
 	var buttoncopystandard = document.getElementById("buttoncopystandard")
 	var buttoncopydiv = document.getElementById("buttoncopy")
-	var copyText = data.user.username + data.user.discriminator;
+	var copyText = data.user.username + "#" + data.user.discriminator;
 
 	function copyToClickBoard() {
 		navigator.clipboard.writeText(copyText)

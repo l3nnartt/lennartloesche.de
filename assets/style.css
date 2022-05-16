@@ -25,13 +25,13 @@ body {
 
 @media screen and (min-width: 331px) {
   .profile {
-    width: 22rem;
+    width: 23rem;
   }
 }
 
 @media screen and (min-width: 416px) {
   .profile {
-    width: 23rem;
+    width: 24rem;
   }
 }
 

@@ -1,60 +1,84 @@
 @import "font.css";
 
 body {
-    background: linear-gradient(rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.2)), url(bg.webp) fixed center;
-    background-size: cover;
+  background: linear-gradient(rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.2)),
+    url(bg.webp) fixed center;
+  background-size: cover;
 }
 
 .profile {
-    background-color: #181818;
-    border-radius: 1rem;
+  background-color: #181818;
+  border-radius: 1rem;
+  padding-top: 14rem;
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  box-shadow: 0 0 4rem 5px #181818;
+}
+
+@media screen and (max-width: 280px) {
+  .profile {
+    width: 17rem;
+  }
+}
+
+@media screen and (min-width: 281px) {
+  .profile {
+    width: 22rem;
+  }
+}
+
+@media screen and (min-width: 416px) {
+  .profile {
+    width: 23rem;
+  }
+}
+
+@media screen and (min-width: 992px) {
+  .profile {
     width: 25rem;
-    padding-top: 14rem;
-    position: fixed;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    box-shadow: 0 0 4rem 5px #181818;
+  }
 }
 
 .banner {
-    position: absolute;
-    top: 0;
-    left: 0;
+  position: absolute;
+  top: 0;
+  left: 0;
 }
 
 .banner img {
-    border-top-left-radius: 1rem;
-    border-top-right-radius: 1rem;
-    width: 100%;
+  border-top-left-radius: 1rem;
+  border-top-right-radius: 1rem;
+  width: 100%;
 }
 
 .pfpbg {
-    position: fixed;
-    top: 5.2rem;
+  position: fixed;
+  top: 5.2rem;
 }
 
 #container {
-    display: flex;
-    justify-content: space-between;
+  display: flex;
+  justify-content: space-between;
 }
 
 a:link {
-    color: #0a9ad3;
-    text-decoration: none;
+  color: #0a9ad3;
+  text-decoration: none;
 }
 
 a:visited {
-    color: #0a9ad3;
-    text-decoration: none;
+  color: #0a9ad3;
+  text-decoration: none;
 }
 
 a:hover {
-    color: #0a9ad3;
-    text-decoration: underline;
+  color: #0a9ad3;
+  text-decoration: underline;
 }
 
 a:active {
-    color: #0a9ad3;
-    text-decoration: underline;
+  color: #0a9ad3;
+  text-decoration: underline;
 }

@@ -17,13 +17,13 @@ body {
   box-shadow: 0 0 4rem 5px #181818;
 }
 
-@media screen and (max-width: 280px) {
+@media screen and (max-width: 330px) {
   .profile {
     width: 17rem;
   }
 }
 
-@media screen and (min-width: 281px) {
+@media screen and (min-width: 331px) {
   .profile {
     width: 22rem;
   }

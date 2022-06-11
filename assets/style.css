@@ -17,30 +17,6 @@ body {
   box-shadow: 0 0 4rem 5px #181818;
 }
 
-@media screen and (max-width: 330px) {
-  .profile {
-    width: 17rem;
-  }
-}
-
-@media screen and (min-width: 331px) {
-  .profile {
-    width: 23rem;
-  }
-}
-
-@media screen and (min-width: 416px) {
-  .profile {
-    width: 24rem;
-  }
-}
-
-@media screen and (min-width: 992px) {
-  .profile {
-    width: 25rem;
-  }
-}
-
 .banner {
   position: absolute;
   top: 0;
@@ -91,4 +67,40 @@ a:hover {
 a:active {
   color: #0a9ad3;
   text-decoration: underline;
+}
+
+@media screen and (max-width: 330px) {
+  .profile {
+    width: 17rem;
+  }
+  #pfpstatus {
+    left: 42%;
+  }
+}
+
+@media screen and (min-width: 331px) {
+  .profile {
+    width: 23rem;
+  }
+  #pfpstatus {
+    left: 32%;
+  }
+}
+
+@media screen and (min-width: 416px) {
+  .profile {
+    width: 24rem;
+  }
+  #pfpstatus {
+    left: 32%;
+  }
+}
+
+@media screen and (min-width: 992px) {
+  .profile {
+    width: 25rem;
+  }
+  #pfpstatus {
+    left: 30%;
+  }
 }

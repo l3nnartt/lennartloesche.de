@@ -32,3 +32,19 @@ fetch("https://dcdn.dstn.to/profile/398101340322136075")
         });
     }
   });
+
+fetch("https://api.lanyard.rest/v1/users/398101340322136075")
+  .then((response) => response.json())
+  .then((data) => {
+    var status = document.getElementById("pfpstatus");
+      switch (data.data.discord_status) {
+      case "online":
+        return status.style.background = "#43b581"
+      case "idle":
+        return status.style.background = "#faa61a"
+      case "dnd":
+        return status.style.background = "#f04747"
+      default:
+        return status.style.background = "#747f8d"
+    }
+  });

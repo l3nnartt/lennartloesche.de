@@ -58,6 +58,16 @@ body {
   top: 5.2rem;
 }
 
+#pfpstatus {
+  position: fixed;
+  top: 10.6rem;
+  left: 30%;
+  height: 30px;
+  width: 30px;
+  border-radius: 50%;
+  outline: 10px solid #181818;
+}
+
 #container {
   display: flex;
   justify-content: space-between;

@@ -60,6 +60,10 @@ body {
   justify-content: space-between;
 }
 
+.d-contents {
+  display: contents;
+}
+
 a:link {
   color: #0a9ad3;
   text-decoration: none;

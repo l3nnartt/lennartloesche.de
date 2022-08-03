@@ -1,20 +1,70 @@
-fetch("https://dcdn.dstn.to/profile/398101340322136075")
-  .then((response) => response.json())
-  .then((data) => {
-    var discordtext = document.getElementById("discordtext");
-    discordtext.innerHTML =
-      "<span class='h4 text-white whitney'>" +
-      data.user.username +
-      "</span><span class='h4 text-white-50 whitney'>#" +
-      data.user.discriminator +
-      "</span>";
+const discordUserId = "398101340322136075";
 
-    document
-      .getElementById("buttoncopystandard")
-      .addEventListener("click", copyToClickBoard);
+const realLifeName = "Lennart";
+const introduceText = "Hey there! My name is " + realLifeName + "!";
+const subText =
+  "I'm a still-learning developer from Germany, actively interested in evolving more and more.";
+const impressumLink = "https://lennartloesche.de/impressum.html";
+const privacyLink = "https://lennartloesche.de/datenschutz.html";
+
+const phoneIconStatus =
+  "https://cdn.discordapp.com/attachments/822443641908756580/991361379426652180/Ebene_1.png";
+const activitiesIframeUrl =
+  "https://lanyard-visualizer.netlify.app/user/" +
+  discordUserId +
+  "?mode=iframe&title=false&background=false";
+
+const spotifyMessage = "Listening to Spotify";
+const gameMessage = "Playing a Game";
+const noGameMessage = "About me";
+
+lanyard({
+  userId: discordUserId,
+  socket: true,
+  onPresenceUpdate: (data) => {
+    var status = document.getElementById("pfpstatus");
+    var discordprofilepic = document.getElementById("discordprofilepic");
+    var discordbanner = document.getElementById("discordbanner");
+    var discordtext = document.getElementById("discordtext");
     var buttoncopystandard = document.getElementById("buttoncopystandard");
     var buttoncopydiv = document.getElementById("buttoncopy");
-    var copyText = data.user.username + "#" + data.user.discriminator;
+    var copyText =
+      data.discord_user.username + "#" + data.discord_user.discriminator;
+    var activities = document.getElementById("activities");
+
+    // show mobile icon if active on mobile device
+    if (data.active_on_discord_mobile) {
+      status.innerHTML =
+        "<img src=" + phoneIconStatus + " class='imagephone'></img>";
+    }
+
+    // load discord profile picture of api
+    discordprofilepic.innerHTML =
+      "<img src='https://cdn.discordapp.com/avatars/" +
+      discordUserId +
+      "/" +
+      data.discord_user.avatar +
+      ".webp?size=128' class='w-100 rounded-circle' draggable='false' alt='" +
+      realLifeName +
+      "Profile Picture'/>";
+
+    // load discord banner picture of api
+    discordbanner.innerHTML =
+      "<img src='https://dcdn.dstn.to/banners/" +
+      discordUserId +
+      "?size=1280' draggable='false' alt='Profile Banner' />";
+
+    // load discord username and tag of api
+    discordtext.innerHTML =
+      "<span class='h4 text-white whitney'>" +
+      data.discord_user.username +
+      "</span><span class='h4 text-white-50 whitney'>#" +
+      data.discord_user.discriminator +
+      "</span>";
+
+    // copy button
+    document;
+    buttoncopystandard.addEventListener("click", copyToClickBoard);
 
     function copyToClickBoard() {
       navigator.clipboard
@@ -32,98 +82,177 @@ fetch("https://dcdn.dstn.to/profile/398101340322136075")
         });
     }
 
-    var accountsdiv = document.getElementById("accountsdiv");
-    var accountLink = "";
-    let value = '';
-    let colorvalue = '';
+    // show discord rich presence if activity is started; show normal about me message if no activity is started
+    if (data.activities != "" && data.listening_to_spotify) {
+      activities.innerHTML =
+        "<div class='text-white-50 one ms-lg-2 mt-1'><p class='fw-bold text-uppercase spacing-spotify'>" +
+        spotifyMessage +
+        "</p></div><iframe class='iframe-spotify' src=" +
+        activitiesIframeUrl +
+        "></iframe>";
+    } else if (data.activities != "" && !data.listening_to_spotify) {
+      activities.innerHTML =
+        "<div class='text-white-50 one ms-lg-2'><p class='fw-bold text-uppercase spacing-game'>" +
+        gameMessage +
+        "</p></div><iframe class='iframe-spotify iframe-game' src=" +
+        activitiesIframeUrl +
+        "></iframe>";
+    } else {
+      activities.innerHTML =
+        "<div class='text-white-50 one ms-lg-2 my-4'><p class='fw-bold text-uppercase spacing'>" +
+        noGameMessage +
+        "</p><p><div>" +
+        introduceText +
+        "</div><div>" +
+        subText +
+        "</div></p><span class='h6 user-select-none'><a href='" +
+        impressumLink +
+        "'>Impressum</a> - <a href='" +
+        privacyLink +
+        "'>Datenschutz</a></span></div>";
+    }
 
-    var socialMedia = [
-      {
-        YouTube: {
-          url: "https://www.youtube.com/channel/",
-          color: "#de1f1f"
-        },
-        Spotify: {
-          url: "https://open.spotify.com/user/",
-          color: "#1DB954"
-        },
-        Twitch: {
-          url: "https://www.twitch.tv/",
-          color: "#6441a5"
-        },
-        Twitter: {
-          url: "https://twitter.com/",
-          color: "#1DA1F2"
-        },
-        Steam: {
-          url: "https://steamcommunity.com/profiles/",
-          color: "#0b6498"
-        },
-        GitHub: {
-          url: "https://github.com/",
-          color: "#FFF"
-        },
-        Reddit: {
-          url: "https://www.reddit.com/user/",
-          color: "#FF5700"
-        }
-      }
-    ]
+    // discord status (online, idle, dnd, offline)
+    switch (data.discord_status) {
+      case "online":
+        return (status.style.background = "#43b581");
+      case "idle":
+        return (status.style.background = "#faa61a");
+      case "dnd":
+        return (status.style.background = "#f04747");
+      default:
+        return (status.style.background = "#747f8d");
+    }
+  },
+});
 
-    data.connected_accounts.forEach((accounts) => {
-
-      if (accounts.type === "youtube") {
-        accountLink = socialMedia[0].YouTube.url + accounts.id;
-        colorvalue = socialMedia[0].YouTube.color;
-      }
-
-      if (accounts.type === "twitter") {
-        accountLink = socialMedia[0].Twitter.url + accounts.name;
-        colorvalue = socialMedia[0].Twitter.color;
-      }
-
-      if (accounts.type === "twitch") {
-        accountLink = socialMedia[0].Twitch.url + accounts.name;
-        colorvalue = socialMedia[0].Twitch.color;
-      }
-
-      if (accounts.type === "github") {
-        accountLink = socialMedia[0].GitHub.url + accounts.name;
-        colorvalue = socialMedia[0].GitHub.color;
-      }
-
-      if (accounts.type === "reddit") {
-        accountLink = socialMedia[0].Reddit.url + accounts.id;
-        colorvalue = socialMedia[0].Reddit.color;
-      }
-
-      if (accounts.type === "spotify") {
-        accountLink = socialMedia[0].Spotify.url + accounts.id;
-        colorvalue = socialMedia[0].Spotify.color;
-      }
-
-      if (accounts.type === "steam") {
-        accountLink = socialMedia[0].Steam.url + accounts.id;
-        colorvalue = socialMedia[0].Steam.color;
-      }
-
-      value += "<a href=" + accountLink + " target='_blank' class='mx-2' style='color: " + colorvalue + " !important'><i class='bi bi-" + accounts.type + "'></i></a>";
-    });
-    accountsdiv.innerHTML = value;
-  });
-
-fetch("https://api.lanyard.rest/v1/users/398101340322136075")
+fetch("https://dcdn.dstn.to/profile/" + discordUserId)
   .then((response) => response.json())
   .then((data) => {
-    var status = document.getElementById("pfpstatus");
-      switch (data.data.discord_status) {
-      case "online":
-        return status.style.background = "#43b581"
-      case "idle":
-        return status.style.background = "#faa61a"
-      case "dnd":
-        return status.style.background = "#f04747"
-      default:
-        return status.style.background = "#747f8d"
+    var accountsdiv = document.getElementById("accountsdiv");
+    var accountLink = "";
+    var value = "";
+
+    // social media url and color
+    var socialMedia = [
+      {
+        github: {
+          name: "github",
+          username: "name",
+          url: "https://github.com/",
+          color: "#FFF",
+          icon: "github",
+          classes: "mx-2",
+          return: true,
+        },
+        spotify: {
+          name: "spotify",
+          username: "id",
+          url: "https://open.spotify.com/user/",
+          color: "#1DB954",
+          icon: "spotify",
+          classes: "mx-2",
+          return: true,
+        },
+        steam: {
+          name: "steam",
+          username: "id",
+          url: "https://steamcommunity.com/profiles/",
+          color: "#0b6498",
+          icon: "steam",
+          classes: "mx-2",
+          return: true,
+        },
+        twitch: {
+          name: "twitch",
+          username: "name",
+          url: "https://www.twitch.tv/",
+          color: "#6441a5",
+          icon: "twitch",
+          classes: "mx-2",
+          return: true,
+        },
+        twitter: {
+          name: "twitter",
+          username: "name",
+          url: "https://twitter.com/",
+          color: "#1DA1F2",
+          icon: "twitter",
+          classes: "mx-2",
+          return: true,
+        },
+        youtube: {
+          name: "youtube",
+          username: "id",
+          url: "https://www.youtube.com/channel/",
+          color: "#de1f1f",
+          icon: "youtube",
+          classes: "mx-2",
+          return: true,
+        },
+        reddit: {
+          name: "reddit",
+          username: "id",
+          url: "https://www.reddit.com/user/",
+          color: "#FF5700",
+          icon: "reddit",
+          classes: "mx-2",
+          return: true,
+        },
+        battlenet: {
+          name: "battlenet",
+          username: null,
+          url: null,
+          color: null,
+          icon: null,
+          classes: null,
+          return: false,
+        },
+        xbox: {
+          name: "xbox",
+          username: null,
+          url: null,
+          color: null,
+          icon: null,
+          classes: null,
+          return: false,
+        },
+        epicgames: {
+          name: "epicgames",
+          username: null,
+          url: null,
+          color: null,
+          icon: null,
+          classes: null,
+          return: false,
+        },
+      },
+    ];
+
+    // insert discord linked social media accounts
+    for (let accounts of data.connected_accounts) {
+      if (accounts.type === socialMedia[0][accounts.type].name) {
+        switch (socialMedia[0][accounts.type].username) {
+          case "id":
+            accountLink = socialMedia[0][accounts.type].url + accounts.id;
+            break;
+          case "name":
+            accountLink = socialMedia[0][accounts.type].url + accounts.name;
+            break;
+        }
+
+        value +=
+          "<a href=" +
+          accountLink +
+          " target='_blank' class='" +
+          socialMedia[0][accounts.type].classes +
+          "' style='color: " +
+          socialMedia[0][accounts.type].color +
+          " !important'><i class='bi bi-" +
+          socialMedia[0][accounts.type].icon +
+          "'></i></a>";
+      }
     }
+
+    accountsdiv.innerHTML = value;
   });

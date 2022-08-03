@@ -192,7 +192,7 @@ fetch("https://dcdn.dstn.to/profile/" + discordUserId)
         },
         reddit: {
           name: "reddit",
-          username: "id",
+          username: "name",
           url: "https://www.reddit.com/user/",
           color: "#FF5700",
           icon: "reddit",

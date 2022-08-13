@@ -75,7 +75,6 @@ lanyard({
             "<span class='text-white bi bi-clipboard-check-fill'></span>";
         })
         .catch((err) => {
-          console.log("Something went wrong", err);
           buttoncopystandard.style.display = "none";
           buttoncopydiv.innerHTML =
             "<span class='text-white bi bi-clipboard-x-fill'></span>";
@@ -85,7 +84,7 @@ lanyard({
     // show discord rich presence if activity is started; show normal about me message if no activity is started
     if (data.activities != "" && data.listening_to_spotify) {
       activities.innerHTML =
-        "<div class='text-white-50 one ms-lg-2 mt-1'><p class='fw-bold text-uppercase spacing-spotify'>" +
+        "<div class='text-white-50 one ms-lg-2'><p class='fw-bold text-uppercase spacing-spotify'>" +
         spotifyMessage +
         "</p></div><iframe class='iframe-spotify' src=" +
         activitiesIframeUrl +
@@ -99,7 +98,7 @@ lanyard({
         "></iframe>";
     } else {
       activities.innerHTML =
-        "<div class='text-white-50 one ms-lg-2 my-4'><p class='fw-bold text-uppercase spacing'>" +
+        "<div class='text-white-50 one ms-lg-2'><p class='fw-bold text-uppercase spacing'>" +
         noGameMessage +
         "</p><p><div>" +
         introduceText +
@@ -143,7 +142,6 @@ fetch("https://dcdn.dstn.to/profile/" + discordUserId)
           color: "#FFF",
           icon: "github",
           classes: "mx-2",
-          return: true,
         },
         spotify: {
           name: "spotify",
@@ -152,7 +150,6 @@ fetch("https://dcdn.dstn.to/profile/" + discordUserId)
           color: "#1DB954",
           icon: "spotify",
           classes: "mx-2",
-          return: true,
         },
         steam: {
           name: "steam",
@@ -161,7 +158,6 @@ fetch("https://dcdn.dstn.to/profile/" + discordUserId)
           color: "#0b6498",
           icon: "steam",
           classes: "mx-2",
-          return: true,
         },
         twitch: {
           name: "twitch",
@@ -170,7 +166,6 @@ fetch("https://dcdn.dstn.to/profile/" + discordUserId)
           color: "#6441a5",
           icon: "twitch",
           classes: "mx-2",
-          return: true,
         },
         twitter: {
           name: "twitter",
@@ -179,7 +174,6 @@ fetch("https://dcdn.dstn.to/profile/" + discordUserId)
           color: "#1DA1F2",
           icon: "twitter",
           classes: "mx-2",
-          return: true,
         },
         youtube: {
           name: "youtube",
@@ -188,7 +182,6 @@ fetch("https://dcdn.dstn.to/profile/" + discordUserId)
           color: "#de1f1f",
           icon: "youtube",
           classes: "mx-2",
-          return: true,
         },
         reddit: {
           name: "reddit",
@@ -197,7 +190,6 @@ fetch("https://dcdn.dstn.to/profile/" + discordUserId)
           color: "#FF5700",
           icon: "reddit",
           classes: "mx-2",
-          return: true,
         },
         battlenet: {
           name: "battlenet",
@@ -206,7 +198,6 @@ fetch("https://dcdn.dstn.to/profile/" + discordUserId)
           color: null,
           icon: null,
           classes: null,
-          return: false,
         },
         xbox: {
           name: "xbox",
@@ -215,7 +206,6 @@ fetch("https://dcdn.dstn.to/profile/" + discordUserId)
           color: null,
           icon: null,
           classes: null,
-          return: false,
         },
         epicgames: {
           name: "epicgames",
@@ -224,7 +214,14 @@ fetch("https://dcdn.dstn.to/profile/" + discordUserId)
           color: null,
           icon: null,
           classes: null,
-          return: false,
+        },
+        riotgames: {
+          name: "riotgames",
+          username: null,
+          url: null,
+          color: null,
+          icon: null,
+          classes: null,
         },
       },
     ];

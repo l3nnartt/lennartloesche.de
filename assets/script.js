@@ -223,6 +223,38 @@ fetch("https://dcdn.dstn.to/profile/" + discordUserId)
           icon: null,
           classes: null,
         },
+        leagueoflegends: {
+          name: "leagueoflegends",
+          username: null,
+          url: null,
+          color: null,
+          icon: null,
+          classes: null,
+        },
+        playstation: {
+          name: "playstation",
+          username: null,
+          url: null,
+          color: null,
+          icon: null,
+          classes: null,
+        },
+        samsunggalaxy: {
+          name: "samsunggalaxy",
+          username: null,
+          url: null,
+          color: null,
+          icon: null,
+          classes: null,
+        },
+        skype: {
+          name: "skype",
+          username: null,
+          url: null,
+          color: null,
+          icon: null,
+          classes: null,
+        },
       },
     ];
 

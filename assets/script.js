@@ -58,8 +58,6 @@ lanyard({
     discordtext.innerHTML =
       "<span class='h4 text-white whitney'>" +
       data.discord_user.username +
-      "</span><span class='h4 text-white-50 whitney'>#" +
-      data.discord_user.discriminator +
       "</span>";
 
     // copy button

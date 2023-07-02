@@ -28,8 +28,7 @@ lanyard({
     var discordtext = document.getElementById("discordtext");
     var buttoncopystandard = document.getElementById("buttoncopystandard");
     var buttoncopydiv = document.getElementById("buttoncopy");
-    var copyText =
-      data.discord_user.username + "#" + data.discord_user.discriminator;
+    var copyText = data.discord_user.username;
     var activities = document.getElementById("activities");
 
     // show mobile icon if active on mobile device

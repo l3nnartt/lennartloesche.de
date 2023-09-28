@@ -101,7 +101,6 @@
 
 	body {
 		background: #252122;
-		background-image: url('images/bg02.png');
 
 		// Stops initial animations until page loads.
 			&.is-preload {
@@ -1034,7 +1033,7 @@
 
 	#main {
 		position: relative;
-		background: #f7f7f7 url('images/bg02.png');
+		background: #f7f7f7;
 		padding: 4em 0 4em 0;
 
 		&:before {
@@ -1051,7 +1050,7 @@
 
 		.major {
 			h2 {
-				background: #f7f7f7 url('images/bg02.png');
+				background: #f7f7f7;
 			}
 		}
 	}
@@ -1385,7 +1384,6 @@
 				width: _size(navPanel);
 				z-index: _misc(z-index-base) + 2;
 				color: #858484;
-				background-image: url('images/bg02.png');
 				box-shadow: inset -3px 0px 5px 0px rgba(0, 0, 0, 0.35);
 
 				.link {
